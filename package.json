@@ -1,0 +1,51 @@
+{
+  "name": "adsiq-mcp",
+  "version": "0.2.0",
+  "description": "Model Context Protocol server for AdsIQ — predict, agent, DCO, campaigns and billing tools over MCP.",
+  "type": "module",
+  "bin": {
+    "adsiq-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "adsiq",
+    "model-context-protocol",
+    "ads",
+    "marketing"
+  ],
+  "author": "Alexander / PresciaIQ 2026",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaazMedia/adsiq-mcp.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@supabase/supabase-js": "^2.43.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}

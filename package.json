@@ -1,5 +1,5 @@
 {
-  "name": "adsiq-mcp",
+  "name": "@presciaiq/adsiq-mcp",
   "version": "0.2.0",
   "description": "Model Context Protocol server for AdsIQ — predict, agent, DCO, campaigns and billing tools over MCP.",
   "type": "module",

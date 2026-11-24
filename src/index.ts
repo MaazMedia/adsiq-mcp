@@ -2,8 +2,19 @@
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { createServer } from "./server.js";
 import { signIn } from "./auth.js";
+import { state } from "./state.js";
 
 async function main() {
+  // Optional pre-minted JWT bootstrap (for live demos / CI without passwords)
+  const bootJwt = process.env.ADSIQ_BOOTSTRAP_JWT;
+  const bootEmail = process.env.ADSIQ_BOOTSTRAP_EMAIL;
+  const bootUserId = process.env.ADSIQ_BOOTSTRAP_USER_ID;
+  if (bootJwt) {
+    state.jwt = bootJwt;
+    state.user = { id: bootUserId || "bootstrap", email: bootEmail || null };
+    console.error(`[adsiq-mcp] bootstrapped session for ${bootEmail || "<unknown>"}`);
+  }
+
   // Optional auto sign-in from env
   const email = process.env.ADSIQ_EMAIL;
   const password = process.env.ADSIQ_PASSWORD;
